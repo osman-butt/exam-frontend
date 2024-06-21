@@ -84,13 +84,15 @@ export function ResultForm({
 
   // 2. Define a submit handler.
   async function onSubmit(values: z.infer<typeof formSchema>) {
+    console.log(values);
+
     setResponseError(null);
     // Check if result is correct
     const chosenDiscipline = disciplines.find(
       discipline => discipline.name === values.discipline
     );
 
-    let resultValue;
+    let resultValueAdj;
 
     if (chosenDiscipline?.measurementType === "TIME") {
       if (!values.resultValue.match(/^\d+:\d{2}\.\d{3}$/)) {
@@ -100,7 +102,7 @@ export function ResultForm({
         });
         return;
       }
-      resultValue = timeToMilliseconds(values.resultValue);
+      resultValueAdj = timeToMilliseconds(values.resultValue);
     }
     if (chosenDiscipline?.measurementType === "DISTANCE") {
       if (!values.resultValue.match(/^\d+$/)) {
@@ -110,7 +112,10 @@ export function ResultForm({
         });
         return;
       }
+      resultValueAdj = values.resultValue;
     }
+
+    console.log(resultValueAdj);
 
     if (chosenDiscipline?.measurementType === "POINTS") {
       if (!values.resultValue.match(/^\d+$/)) {
@@ -120,6 +125,7 @@ export function ResultForm({
         });
         return;
       }
+      resultValueAdj = values.resultValue;
     }
 
     const result = {
@@ -128,7 +134,7 @@ export function ResultForm({
         participant => participant.name === values.name
       ),
       date: values.date,
-      resultValue: resultValue,
+      resultValue: resultValueAdj,
       discipline: disciplines.find(
         discipline => discipline.name === values.discipline
       ),

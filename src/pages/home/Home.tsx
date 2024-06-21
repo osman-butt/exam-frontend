@@ -10,23 +10,25 @@ export default function Home() {
     >
       <div className="overflow-hidden text-black bg-opacity-80 bg-zinc-50">
         <div className="max-w-[800px] w-full h-screen m-[-28px] mx-auto text-center flex flex-col justify-center">
-          <p className="font-bold text-black">PLACEHOLDER HERO</p>
+          <p className="font-bold text-black"></p>
           <h1 className="text-4xl font-bold md:text-7xl sm:text-6xl md:py-6">
-            MAIN TEXT.
+            Atletikstævne
           </h1>
           <div className="flex items-center justify-center">
             <p className="py-4 text-xl font-bold md:text-5xl sm:text-4xl">
-              SUBTEXT
+              Management system
             </p>
             <div className="pl-2 text-xl font-bold md:text-5xl sm:text-4xl md:pl-4" />
           </div>
           <p className="text-xl font-bold text-gray-500 md:text-2xl">
-            SUBSUBTEXT
+            Opret deltagere og resultater
           </p>
           {/* <button className="bg-[#00df9a] w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-black">
             Get Started
           </button> */}
-          <Button className="w-[200px] mx-auto my-6">Get Started</Button>
+          <Link to="/deltagere">
+            <Button className="w-[200px] mx-auto my-6">Start</Button>
+          </Link>
         </div>
       </div>
       <div className="max-w-[1240px] mx-auto py-4 px-4 grid md:grid-cols-3 gap-8 text-gray-800/80">
