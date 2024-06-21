@@ -11,6 +11,10 @@ const links = [
     name: "Resultater",
     href: "/resultater",
   },
+  {
+    name: "Discipliner",
+    href: "/Discipliner",
+  },
 ];
 
 type NavLinksProps = {
